@@ -14,11 +14,12 @@ class TestController {
             orderBy = [
                 OrderMapping(
                     property = "name",
-                    mappedName = "parent.name"
+                    mappedName = "mappedName"
                 )
             ]
         ) pageable: Pageable
     ): HttpResponse<TestDto> {
+        // Run JPA queries with the pageable argument sorted by the mapped name
         return HttpResponse.ok(TestDto("test"))
     }
 }
